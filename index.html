@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Trang giới thiệu bản thân của Võ Hoài Giang - Product Designer & Frontend Developer.">
+  <title>Võ Hoài Giang | Giới thiệu bản thân</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #17313b;
+      --ink-soft: #557079;
+      --paper: #f8f5ef;
+      --paper-deep: #ece7dd;
+      --coral: #e56f57;
+      --coral-dark: #bc4f3b;
+      --teal: #277b78;
+      --line: rgba(23, 49, 59, .14);
+      --white: #fffdf9;
+      --shadow: 0 18px 45px rgba(23, 49, 59, .12);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: 'DM Sans', sans-serif;
+      line-height: 1.6;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+    .container { width: min(1120px, calc(100% - 48px)); margin: 0 auto; }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(248, 245, 239, .92);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(14px);
+    }
+    nav { height: 76px; display: flex; align-items: center; justify-content: space-between; }
+    .brand { font-size: 1.15rem; font-weight: 700; letter-spacing: -.04em; }
+    .brand span { color: var(--coral); }
+    .nav-links { display: flex; align-items: center; gap: 30px; font-size: .86rem; font-weight: 600; }
+    .nav-links a { color: var(--ink-soft); transition: color .2s ease; }
+    .nav-links a:hover { color: var(--coral-dark); }
+    .nav-cta { padding: 11px 17px; color: var(--white) !important; background: var(--ink); border-radius: 4px; }
+    .menu-toggle { display: none; border: 0; background: transparent; color: var(--ink); font-size: 1.5rem; cursor: pointer; }
+
+    .hero { padding: 80px 0 96px; overflow: hidden; }
+    .hero-grid { display: grid; grid-template-columns: minmax(0, 760px); align-items: center; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 10px; color: var(--teal); font-size: .76rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; }
+    .eyebrow::before { content: ''; width: 28px; height: 2px; background: var(--coral); }
+    h1, h2 { margin: 0; font-family: 'Playfair Display', serif; font-weight: 700; line-height: 1.08; letter-spacing: -.04em; }
+    h1 { max-width: 650px; margin-top: 21px; font-size: clamp(3.4rem, 7vw, 6.4rem); }
+    h1 em { color: var(--coral); font-style: normal; }
+    .hero-copy { max-width: 550px; margin: 25px 0 31px; color: var(--ink-soft); font-size: 1.08rem; }
+    .actions { display: flex; flex-wrap: wrap; gap: 13px; }
+    .button { display: inline-flex; align-items: center; gap: 10px; padding: 14px 20px; border: 1px solid var(--ink); border-radius: 4px; font-size: .87rem; font-weight: 700; transition: transform .2s ease, background .2s ease; }
+    .button:hover { transform: translateY(-3px); }
+    .button-primary { color: var(--white); background: var(--ink); }
+    .button-secondary { color: var(--ink); background: transparent; }
+    .button-secondary:hover { background: var(--paper-deep); }
+
+    .section { padding: 96px 0; border-top: 1px solid var(--line); }
+    .section-heading { display: flex; align-items: end; justify-content: space-between; gap: 30px; margin-bottom: 44px; }
+    h2 { font-size: clamp(2.35rem, 4vw, 3.5rem); }
+    .section-intro { max-width: 390px; margin: 0; color: var(--ink-soft); font-size: .95rem; }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 70px; }
+    .about-text p { margin: 0 0 18px; color: var(--ink-soft); }
+    .about-text p:first-child { color: var(--ink); font-size: 1.25rem; line-height: 1.5; }
+    .facts { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--line); border: 1px solid var(--line); }
+    .fact { min-height: 145px; padding: 22px; background: var(--paper); }
+    .fact b { display: block; margin-bottom: 8px; color: var(--coral-dark); font-family: 'Playfair Display', serif; font-size: 2.25rem; }
+    .fact span { color: var(--ink-soft); font-size: .85rem; }
+
+    .skills-section { background: var(--ink); color: var(--white); }
+    .skills-section .eyebrow { color: #8fd0c7; }
+    .skills-section .section-intro { color: rgba(255,255,255,.67); }
+    .skill-list { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .skill { padding-top: 24px; border-top: 1px solid rgba(255,255,255,.26); }
+    .skill-number { color: var(--coral); font-size: .78rem; font-weight: 700; }
+    .skill h3 { margin: 17px 0 9px; font-size: 1.15rem; }
+    .skill p { margin: 0; color: rgba(255,255,255,.62); font-size: .9rem; }
+    .tag-row { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 17px; }
+    .tag { padding: 5px 9px; border: 1px solid rgba(255,255,255,.2); color: rgba(255,255,255,.8); font-size: .72rem; }
+
+    .timeline { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
+    .timeline-item { position: relative; padding: 0 0 30px 28px; border-left: 1px solid var(--coral); }
+    .timeline-item::before { content: ''; position: absolute; top: 0; left: -5px; width: 9px; height: 9px; background: var(--coral); border-radius: 50%; }
+    .timeline-item + .timeline-item { margin-top: 25px; }
+    .timeline-date { color: var(--coral-dark); font-size: .75rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
+    .timeline h3 { margin: 8px 0 5px; font-size: 1.1rem; }
+    .timeline p { margin: 0; color: var(--ink-soft); font-size: .9rem; }
+
+    .projects { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .project-card { min-height: 220px; padding: 24px; border: 1px solid var(--line); background: var(--white); }
+    .project-card h3 { margin: 28px 0 8px; font-size: 1.18rem; }
+    .project-card p { margin: 0; color: var(--ink-soft); font-size: .88rem; }
+    .project-type { color: var(--coral-dark); font-size: .72rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+    .data-status { margin: 18px 0 0; color: var(--ink-soft); font-size: .8rem; }
+
+    .contact { background: var(--coral); color: var(--white); }
+    .contact-inner { display: flex; align-items: center; justify-content: space-between; gap: 40px; }
+    .contact h2 { max-width: 590px; }
+    .contact .eyebrow { color: var(--white); }
+    .contact .eyebrow::before { background: var(--white); }
+    .contact .button { border-color: var(--white); color: var(--ink); background: var(--white); white-space: nowrap; }
+    .contact-form { display: grid; gap: 12px; width: min(100%, 460px); margin-top: 30px; }
+    .contact-form input, .contact-form textarea { width: 100%; padding: 13px 15px; border: 1px solid rgba(255,255,255,.55); border-radius: 3px; color: var(--ink); background: rgba(255,255,255,.92); font: inherit; }
+    .contact-form textarea { min-height: 110px; resize: vertical; }
+    .contact-form input:focus, .contact-form textarea:focus { outline: 2px solid var(--white); outline-offset: 2px; }
+    .contact-form button { justify-self: start; border: 1px solid var(--white); color: var(--ink); background: var(--white); cursor: pointer; }
+    .form-status { margin: 0; color: rgba(255,255,255,.86); font-size: .82rem; }
+    footer { padding: 25px 0; color: var(--ink-soft); font-size: .8rem; }
+    .footer-inner { display: flex; justify-content: space-between; gap: 20px; }
+    .socials { display: flex; gap: 18px; font-weight: 600; }
+    .socials a:hover { color: var(--coral-dark); }
+
+    @media (max-width: 760px) {
+      .container { width: min(100% - 32px, 560px); }
+      nav { height: 68px; }
+      .menu-toggle { display: block; }
+      .nav-links { position: absolute; top: 68px; left: 0; right: 0; display: none; flex-direction: column; align-items: stretch; gap: 0; padding: 8px 16px 17px; background: var(--paper); border-bottom: 1px solid var(--line); }
+      .nav-links.is-open { display: flex; }
+      .nav-links a { padding: 11px 0; }
+      .nav-cta { margin-top: 5px; text-align: center; }
+      .hero { padding: 57px 0 70px; }
+      .hero-grid, .about-grid, .timeline { grid-template-columns: 1fr; gap: 45px; }
+      .projects { grid-template-columns: 1fr; }
+      .section { padding: 70px 0; }
+      .section-heading { display: block; margin-bottom: 32px; }
+      .section-intro { margin-top: 17px; }
+      .skill-list { grid-template-columns: 1fr; gap: 28px; }
+      .contact-inner { display: block; }
+      .contact .button { margin-top: 24px; }
+      .footer-inner { display: block; }
+      .socials { margin-top: 12px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container">
+      <nav aria-label="Điều hướng chính">
+        <a class="brand" href="#top">vohoai<span>giang.</span></a>
+        <button class="menu-toggle" aria-label="Mở menu" aria-expanded="false">☰</button>
+        <div class="nav-links">
+          <a href="#about">Về tôi</a>
+          <a href="#skills">Chuyên môn</a>
+          <a href="#projects">Dự án</a>
+          <a href="#journey">Hành trình</a>
+          <a class="nav-cta" href="#contact">Liên hệ</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">Xin chào, mình là Võ Hoài Giang</div>
+          <h1>Mình tạo ra những trải nghiệm <em>đáng nhớ.</em></h1>
+          <p class="hero-copy">Product Designer & Frontend Developer tại Hà Nội. Mình biến những vấn đề phức tạp thành sản phẩm đơn giản, hữu ích và có cá tính.</p>
+          <div class="actions">
+            <a class="button button-primary" href="#about">Khám phá câu chuyện <span aria-hidden="true">↗</span></a>
+            <a class="button button-secondary" href="#contact">Kết nối với mình</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section-heading">
+          <div class="eyebrow">Một chút về mình</div>
+          <p class="section-intro">Tò mò, thực tế và luôn tin rằng thiết kế tốt bắt đầu từ việc lắng nghe thật kỹ.</p>
+        </div>
+        <div class="about-grid">
+          <div class="about-text">
+            <p>Mình là người thích đứng ở giao điểm giữa tư duy sáng tạo và khả năng giải quyết vấn đề.</p>
+            <p>Trong công việc, mình quan tâm đến toàn bộ hành trình của một sản phẩm: từ câu hỏi đầu tiên, những bản phác thảo còn dang dở, cho đến khoảnh khắc người dùng mỉm cười khi mọi thứ trở nên thật dễ dàng.</p>
+            <p>Ngoài giờ làm, bạn có thể bắt gặp mình ở một quán cà phê yên tĩnh, đang đọc sách, chụp ảnh đường phố hoặc học một điều hoàn toàn mới.</p>
+          </div>
+          <div class="facts" aria-label="Thông tin nhanh">
+            <div class="fact"><b>06+</b><span>Năm kinh nghiệm thiết kế và phát triển sản phẩm</span></div>
+            <div class="fact"><b>42</b><span>Dự án đã hoàn thành cùng các đội ngũ khác nhau</span></div>
+            <div class="fact"><b>12</b><span>Thương hiệu và startup đã đồng hành</span></div>
+            <div class="fact"><b>02</b><span>Điều mình luôn giữ: tò mò và tử tế</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section skills-section" id="skills">
+      <div class="container">
+        <div class="section-heading">
+          <div class="eyebrow">Mình làm gì</div>
+          <p class="section-intro">Một bộ kỹ năng cân bằng giữa chiến lược, thẩm mỹ và khả năng đưa ý tưởng vào đời thực.</p>
+        </div>
+        <div class="skill-list">
+          <article class="skill"><span class="skill-number">01 / 03</span><h3>Product Design</h3><p>Biến insight người dùng thành trải nghiệm mạch lạc, có mục đích và dễ sử dụng.</p><div class="tag-row"><span class="tag">UX Research</span><span class="tag">UI Design</span><span class="tag">Prototyping</span></div></article>
+          <article class="skill"><span class="skill-number">02 / 03</span><h3>Frontend Development</h3><p>Xây dựng giao diện nhanh, linh hoạt và sát với tinh thần của thiết kế ban đầu.</p><div class="tag-row"><span class="tag">HTML / CSS</span><span class="tag">JavaScript</span><span class="tag">React</span></div></article>
+          <article class="skill"><span class="skill-number">03 / 03</span><h3>Creative Direction</h3><p>Định hình ngôn ngữ hình ảnh nhất quán để sản phẩm có tiếng nói riêng và dễ được nhớ đến.</p><div class="tag-row"><span class="tag">Branding</span><span class="tag">Art Direction</span><span class="tag">Strategy</span></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="projects">
+      <div class="container">
+        <div class="section-heading">
+          <div class="eyebrow">Dự án gần đây</div>
+          <p class="section-intro">Nội dung bên dưới được đọc trực tiếp từ bảng `projects` trong Supabase.</p>
+        </div>
+        <div class="projects" id="project-list" aria-live="polite"></div>
+        <p class="data-status" id="project-status">Đang tải dữ liệu dự án...</p>
+      </div>
+    </section>
+
+    <section class="section" id="journey">
+      <div class="container">
+        <div class="section-heading">
+          <div class="eyebrow">Hành trình của mình</div>
+          <p class="section-intro">Mỗi chặng đường đều để lại một góc nhìn mới về cách tạo ra sản phẩm tốt hơn.</p>
+        </div>
+        <div class="timeline">
+          <div>
+            <article class="timeline-item"><span class="timeline-date">2022 — nay</span><h3>Senior Product Designer · Mộc Studio</h3><p>Dẫn dắt thiết kế cho các sản phẩm số trong lĩnh vực giáo dục và tài chính cá nhân.</p></article>
+            <article class="timeline-item"><span class="timeline-date">2020 — 2022</span><h3>Product Designer · Lime Tech</h3><p>Thiết kế lại nền tảng thương mại điện tử, giúp tỷ lệ hoàn thành đơn hàng tăng 28%.</p></article>
+          </div>
+          <div>
+            <article class="timeline-item"><span class="timeline-date">2018 — 2020</span><h3>UI/UX Designer · Freelance</h3><p>Đồng hành cùng các startup từ những ý tưởng đầu tiên đến sản phẩm được ra mắt.</p></article>
+            <article class="timeline-item"><span class="timeline-date">2014 — 2018</span><h3>Cử nhân Thiết kế đồ họa · FPT Arena</h3><p>Nơi mình học cách quan sát, kể chuyện bằng hình ảnh và không ngại đặt câu hỏi.</p></article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section contact" id="contact">
+      <div class="container contact-inner">
+        <div>
+          <div class="eyebrow">Hãy cùng tạo điều gì đó</div>
+          <h2>Bạn có một ý tưởng thú vị? Mình rất muốn nghe.</h2>
+          <form class="contact-form" id="contact-form">
+            <input type="text" name="name" placeholder="Tên của bạn" autocomplete="name" required>
+            <input type="email" name="email" placeholder="Email của bạn" autocomplete="email" required>
+            <textarea name="message" placeholder="Bạn muốn chia sẻ điều gì?" required></textarea>
+            <button class="button" type="submit">Gửi lời nhắn <span aria-hidden="true">↗</span></button>
+            <p class="form-status" id="form-status" role="status"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <div>© <span id="year"></span> Võ Hoài Giang. Làm bằng sự tò mò.</div>
+      <div class="socials"><a href="#contact">LinkedIn</a><a href="#contact">Behance</a><a href="#contact">Instagram</a></div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="config.js"></script>
+  <script>
+    const fallbackProjects = [
+      { title: 'Nền tảng học tập', category: 'Product Design', description: 'Thiết kế trải nghiệm học tập rõ ràng và dễ tiếp cận cho mọi người.' },
+      { title: 'Ví cá nhân', category: 'UX / UI', description: 'Giúp người dùng hiểu và chủ động hơn với thói quen tài chính của mình.' },
+      { title: 'Bộ nhận diện Mộc', category: 'Brand Direction', description: 'Xây dựng tiếng nói hình ảnh mộc mạc, hiện đại cho một thương hiệu địa phương.' }
+    ];
+    const supabaseConfig = window.SUPABASE_CONFIG || {};
+    const hasSupabaseConfig = Boolean(supabaseConfig.url && supabaseConfig.anonKey && window.supabase);
+    const supabaseClient = hasSupabaseConfig
+      ? window.supabase.createClient(supabaseConfig.url, supabaseConfig.anonKey)
+      : null;
+
+    function escapeHtml(value) {
+      return String(value || '').replace(/[&<>'"]/g, (character) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[character]));
+    }
+
+    function renderProjects(projects) {
+      document.getElementById('project-list').innerHTML = projects.map((project) => `
+        <article class="project-card">
+          <span class="project-type">${escapeHtml(project.category || 'Dự án')}</span>
+          <h3>${escapeHtml(project.title)}</h3>
+          <p>${escapeHtml(project.description)}</p>
+        </article>
+      `).join('');
+    }
+
+    async function loadProjects() {
+      const status = document.getElementById('project-status');
+      if (!supabaseClient) {
+        renderProjects(fallbackProjects);
+        status.textContent = 'Đang hiển thị dữ liệu mẫu. Thêm biến môi trường Supabase để tải dữ liệu thật.';
+        return;
+      }
+      const { data, error } = await supabaseClient.from('projects').select('title, category, description').order('created_at', { ascending: false });
+      if (error) {
+        renderProjects(fallbackProjects);
+        status.textContent = 'Chưa thể tải dữ liệu Supabase, đang hiển thị dữ liệu mẫu.';
+        return;
+      }
+      renderProjects(data.length ? data : fallbackProjects);
+      status.textContent = data.length ? 'Dữ liệu được tải từ Supabase.' : 'Bảng projects chưa có dữ liệu, đang hiển thị mẫu.';
+    }
+
+    document.getElementById('contact-form').addEventListener('submit', async (event) => {
+      event.preventDefault();
+      const form = event.currentTarget;
+      const status = document.getElementById('form-status');
+      const formData = new FormData(form);
+      const message = { name: formData.get('name'), email: formData.get('email'), message: formData.get('message') };
+      if (!supabaseClient) {
+        status.textContent = 'Form đã sẵn sàng. Hãy cấu hình Supabase để lưu lời nhắn.';
+        return;
+      }
+      status.textContent = 'Đang gửi lời nhắn...';
+      const { error } = await supabaseClient.from('contact_messages').insert(message);
+      status.textContent = error ? 'Có lỗi khi gửi. Vui lòng thử lại sau.' : 'Cảm ơn bạn, lời nhắn đã được gửi.';
+      if (!error) form.reset();
+    });
+
+    loadProjects();
+    const menuButton = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    menuButton.addEventListener('click', () => {
+      const isOpen = navLinks.classList.toggle('is-open');
+      menuButton.setAttribute('aria-expanded', isOpen);
+      menuButton.textContent = isOpen ? '×' : '☰';
+    });
+    document.querySelectorAll('.nav-links a').forEach((link) => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('is-open');
+        menuButton.setAttribute('aria-expanded', 'false');
+        menuButton.textContent = '☰';
+      });
+    });
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
